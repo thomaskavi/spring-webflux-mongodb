@@ -30,7 +30,7 @@ public class UserService {
 	public Mono<UserDTO> insert(UserDTO dto) {
 		User entity = new User();
 		copyDtoToEntity(dto, entity);
-		Mono<UserDTO> result = repository.save(entity).map(user -> new UserDTO());
+		Mono<UserDTO> result = repository.save(entity).map(user -> new UserDTO(user));
 		return result;
 	}
 
